@@ -1,5 +1,4 @@
 # MarkleTrees
-Cyber Security project of Shandong University (holder:Jin Cuifu)
 
 # Task_List
 • Implement Merkle Tree as of RFC 6962 in any programming language that you prefer.  
