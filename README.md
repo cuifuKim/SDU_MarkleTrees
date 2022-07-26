@@ -72,4 +72,4 @@ For the implementation of this process, first of all, the following explanations
   
 (6) Then check whether the hash value of the sum of child nodes in each layer of the tree given as evidence is its parent node (that is, check whether it is a Merkle tree). Finally, whether the child nodes of the root node can generate the root node is tested separately: if it can pass all the tests, it indicates that the detection node is indeed in the tree of the given root node.  
 
-# Done...
+# End
