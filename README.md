@@ -4,6 +4,34 @@
 • Implement Merkle Tree as of RFC 6962 in any programming language that you prefer.  
 • Construct a merkle tree with 100k leaf nodes.  
 • Construct the existence (inclusion) proof for randomly chosen leaf node & verify the proof.  
+# Excute Process
+
+<br>
+<center>
+<img src="CreateMerkelTree.png" width="1462" height="232">
+</center>
+
+<br>
+<center>
+<img src="NextCreatMarkelTree.png" width="1279" height="643">
+</center>
+
+<br>
+<center>
+<img src="Evidence.png" width="1284" height="490">
+</center>
+
+<br>
+<center>
+<img src="EvidenceTwoP.png" width="1271" height="123">
+</center>
+
+<br>
+<center>
+<img src="Verify.png" width="1274" height="192">
+</center>
+
+---
 
 # Implementation_Process
 1. Implement Merkle Tree as of RFC 6962 in any programming language that you prefer  
