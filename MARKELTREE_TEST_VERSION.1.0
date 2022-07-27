@@ -1,0 +1,28 @@
+#-----------------------------------TEST Version 1.1-------------------------------------#
+#1.Create a MerkleTree
+DATA = ["1","2","3","4","5"]
+Tree_1 = CreatTree(DATA)
+print("#-------------------------------------Create a MerkleTree-------------------------------------#")
+print(Tree_1)
+print("#---------------------------------------------------------------------------------------------#\n")
+#-----------------------------------TEST Version 1.1-------------------------------------#
+#2.Create a MerkleTree with 100k leafnodes
+TestMessages = GenerateMessages()
+Tree_2 = CreatTree(TestMessages)
+print("#-------------------------------------Create a MerkleTree with 100k leafnodes-----------------#")
+print(Tree_2)
+print("#---------------------------------------------------------------------------------------------#\n")
+#-----------------------------------TEST Version 1.1-------------------------------------#
+#3.Show the evidence that a leafnode is in the tree
+n=random.randint(0,100000-1) #Choose a random message from the TestMessages
+Evidence = ShowEvidence(TestMessages[n],Tree_2)
+print("#-------------------------------Show the evidence that a leafnode is in the tree----------------#")
+print(Evidence)
+#ShowEvidence("8",Tree_1)   #This is to show what will happen if your input is not in the MerkleTree#
+print("#---------------------------------------------------------------------------------------------#\n")
+#-----------------------------------TEST Version 1.1-------------------------------------#
+#4.Verify the proof
+print("#-------------------------------Verify the proof-------------------------------------------------#")
+print("The evidence is:")
+print(Verify(TestMessages[n],Evidence,Tree_2[-1][0]))
+print("#---------------------------------------------------------------------------------------------#\n")
