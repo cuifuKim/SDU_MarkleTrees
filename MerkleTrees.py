@@ -28,7 +28,6 @@ def ShowEvidence(m,Tree):
         n=Tree[0].index(h)
     except:
         print("The leafnode is not in the tree")
-
     Depth = len(Tree)
     Evidence = []
     for d in range(0,Depth):
@@ -37,14 +36,10 @@ def ShowEvidence(m,Tree):
                 pass
             else:
                 Evidence.append([Tree[d][n],Tree[d][n+1]])
-
         else:
             Evidence.append([Tree[d][n-1], Tree[d][n]])
-
         n = math.floor(n/2)
-
     Evidence.append([Tree[-1][0]])
-
     return Evidence
 
 #4.Verify the proof
@@ -52,54 +47,14 @@ def Verify(m,Evidence,Top):
     h = (hashlib.sha256(m.encode())).hexdigest()
     if h != Evidence[0][0] and h != Evidence[0][1]:
         return False
-
     if Evidence[-1][0] != Top:
         return False
-
     Depth = len(Evidence)
     for i in range(0,Depth-1):
         node = (hashlib.sha256(Evidence[i][0].encode() + Evidence[i][1].encode())).hexdigest()
         if node != Evidence[i+1][0] and node != Evidence[i+1][1]:
             return False
-
     if (hashlib.sha256(Evidence[-2][0].encode() + Evidence[-2][1].encode())).hexdigest() != Evidence[-1][0]:
         return False
 
     return True
-
-
-
-#-------------------------------------TEST-------------------------------------#
-
-#1.Create a MerkleTree
-DATA = ["1","2","3","4","5"]
-Tree_1 = CreatTree(DATA)
-print("#-------------------------------------Create a MerkleTree-------------------------------------#")
-print(Tree_1)
-print("#---------------------------------------------------------------------------------------------#\n")
-
-#2.Create a MerkleTree with 100k leafnodes
-TestMessages = GenerateMessages()
-Tree_2 = CreatTree(TestMessages)
-print("#-------------------------------------Create a MerkleTree with 100k leafnodes-----------------#")
-print(Tree_2)
-print("#---------------------------------------------------------------------------------------------#\n")
-
-#3.Show the evidence that a leafnode is in the tree
-n=random.randint(0,100000-1) #Choose a random message from the TestMessages
-Evidence = ShowEvidence(TestMessages[n],Tree_2)
-print("#-------------------------------Show the evidence that a leafnode is in the tree----------------#")
-print(Evidence)
-#ShowEvidence("8",Tree_1)   #This is to show what will happen if your input is not in the MerkleTree#
-print("#---------------------------------------------------------------------------------------------#\n")
-
-#4.Verify the proof
-print("#-------------------------------Verify the proof-------------------------------------------------#")
-print("The evidence is:")
-print(Verify(TestMessages[n],Evidence,Tree_2[-1][0]))
-print("#---------------------------------------------------------------------------------------------#\n")
-
-
-
-
-
